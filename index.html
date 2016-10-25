@@ -7,72 +7,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>jQuery手机移动端图片触屏滑动焦点图网页特效 - 【科e互联】</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    <meta name="keywords" content="手机焦点图,手机幻灯片,触屏滑动焦点图,移动端焦点图,网页特效" />
-    <meta name="description" content="jQuery手机移动端图片触屏滑动焦点图网页特效，该特效基于jquery.event.drag-1.5.min.js、 jquery.touchSlider.js和jquery-1.7.1.min.js等插件制作的图片轮播特效代码，兼容PC端和手机移动端，全屏宽屏 显示，支持鼠标点击切换图片，鼠标拖拽切换图片，手机触摸滑动切换图片。">
-    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
-    <script type="text/javascript" src="js/jquery.touchSlider.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-
-        $(".main_visual").hover(function() {
-            $("#btn_prev,#btn_next").fadeIn()
-        }, function() {
-            $("#btn_prev,#btn_next").fadeOut()
-        });
-
-        $dragBln = false;
-
-        $(".main_image").touchSlider({
-            flexible: true,
-            speed: 200,
-            btn_prev: $("#btn_prev"),
-            btn_next: $("#btn_next"),
-            paging: $(".flicking_con a"),
-            counter: function(e) {
-                $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
-            }
-        });
-
-        $(".main_image").bind("mousedown", function() {
-            $dragBln = false;
-        });
-
-        $(".main_image").bind("dragstart", function() {
-            $dragBln = true;
-        });
-
-        $(".main_image a").click(function() {
-            if ($dragBln) {
-                return false;
-            }
-        });
-
-        timer = setInterval(function() {
-            $("#btn_next").click();
-        }, 5000);
-
-        $(".main_visual").hover(function() {
-            clearInterval(timer);
-        }, function() {
-            timer = setInterval(function() {
-                $("#btn_next").click();
-            }, 5000);
-        });
-
-        $(".main_image").bind("touchstart", function() {
-            clearInterval(timer);
-        }).bind("touchend", function() {
-            timer = setInterval(function() {
-                $("#btn_next").click();
-            }, 5000);
-        });
-
-    });
-    </script>
+   
 
 </head>
 
@@ -190,6 +126,68 @@
             </div>
         </article>
     </div>
+ <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        $(".main_visual").hover(function() {
+            $("#btn_prev,#btn_next").fadeIn()
+        }, function() {
+            $("#btn_prev,#btn_next").fadeOut()
+        });
+
+        $dragBln = false;
+
+        $(".main_image").touchSlider({
+            flexible: true,
+            speed: 200,
+            btn_prev: $("#btn_prev"),
+            btn_next: $("#btn_next"),
+            paging: $(".flicking_con a"),
+            counter: function(e) {
+                $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
+            }
+        });
+
+        $(".main_image").bind("mousedown", function() {
+            $dragBln = false;
+        });
+
+        $(".main_image").bind("dragstart", function() {
+            $dragBln = true;
+        });
+
+        $(".main_image a").click(function() {
+            if ($dragBln) {
+                return false;
+            }
+        });
+
+        timer = setInterval(function() {
+            $("#btn_next").click();
+        }, 5000);
+
+        $(".main_visual").hover(function() {
+            clearInterval(timer);
+        }, function() {
+            timer = setInterval(function() {
+                $("#btn_next").click();
+            }, 5000);
+        });
+
+        $(".main_image").bind("touchstart", function() {
+            clearInterval(timer);
+        }).bind("touchend", function() {
+            timer = setInterval(function() {
+                $("#btn_next").click();
+            }, 5000);
+        });
+
+    });
+    </script>
 </body>
 
 </html>
