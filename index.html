@@ -8,69 +8,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
-    <script type="text/javascript" src="js/jquery.touchSlider.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-
-        $(".main_visual").hover(function() {
-            $("#btn_prev,#btn_next").fadeIn()
-        }, function() {
-            $("#btn_prev,#btn_next").fadeOut()
-        });
-
-        $dragBln = false;
-
-        $(".main_image").touchSlider({
-            flexible: true,
-            speed: 200,
-            btn_prev: $("#btn_prev"),
-            btn_next: $("#btn_next"),
-            paging: $(".flicking_con a"),
-            counter: function(e) {
-                $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
-            }
-        });
-
-        $(".main_image").bind("mousedown", function() {
-            $dragBln = false;
-        });
-
-        $(".main_image").bind("dragstart", function() {
-            $dragBln = true;
-        });
-
-        $(".main_image a").click(function() {
-            if ($dragBln) {
-                return false;
-            }
-        });
-
-        timer = setInterval(function() {
-            $("#btn_next").click();
-        }, 5000);
-
-        $(".main_visual").hover(function() {
-            clearInterval(timer);
-        }, function() {
-            timer = setInterval(function() {
-                $("#btn_next").click();
-            }, 5000);
-        });
-
-        $(".main_image").bind("touchstart", function() {
-            clearInterval(timer);
-        }).bind("touchend", function() {
-            timer = setInterval(function() {
-                $("#btn_next").click();
-            }, 5000);
-        });
-
-    });
-    </script>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
 </head>
 
 <body>
@@ -109,8 +46,7 @@
                     <p>
                         今日更新
                     </p>
-                </div>
-                <iframe frameborder="0" width="100%" height="auto" src="http://v.qq.com/iframe/player.html?vid=f0340avkns2&tiny=0&auto=0" allowfullscreen></iframe>
+                    </div>
                     <div class="v-1" onmouseover="this.style.cursor='pointer'" onclick="document.location=' http://955.cc/nrwBs';">
                         <img src="img/video/1.png" width="60px">
                         <p>震惊！王宝强离婚爆出<br/>最新惊人内幕！</p>
